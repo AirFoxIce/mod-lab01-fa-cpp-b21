@@ -49,5 +49,37 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    return 0;
+    int length = 0;
+    int count_words = 0;
+    int sum_length = 0;
+    bool in_word = false;
+    for (int i = 0; str[i] != '\0'; i++){
+        if (!isspace(str[i])){
+            if (!in_word){
+                in_word = true;
+                length = 1;
+            }
+            else{
+                length++;
+            }
+        }
+        else{
+            if (in_word){
+                count_words++;
+                sum_length += length;
+                in_word = false;
+            }
+        }
+    }
+
+    if(in_word){
+        count_words++;
+        sum_length += length;
+    }
+
+    if (count_words == 0) return 0;
+    else{
+        double result = (double) sum_length / count_words;
+        return (int)(result + 0.5);
+    }
 }

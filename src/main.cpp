@@ -5,8 +5,8 @@ using namespace std;
 
 
 int main() {
-    const char* testStr = "Hello , world!";
-    int result = faStr2(testStr);
-    cout << "faStr2 result: " << result;
+    const char* testStr = "One two three";
+    int result = faStr3(testStr);
+    cout << "faStr3 result: " << result;
     return 0;
 }
